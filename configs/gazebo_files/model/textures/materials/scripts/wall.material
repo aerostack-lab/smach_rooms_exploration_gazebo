@@ -1,0 +1,126 @@
+material WhiteBricks/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture white_bricks.jpg
+	scale 0.4 0.7
+      }
+    }
+  }
+}
+material WhiteBricksSmall/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture white_bricks.jpg
+	scale 2.2 3.3
+      }
+    }
+  }
+}
+material WhiteBricksThin/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture white_bricks.jpg
+	scale 2.4 0.7
+      }
+    }
+  }
+}
+material WhiteBricksExterior/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture white_bricks.jpg
+	scale 0.2 0.7
+      }
+    }
+  }
+}
+material Bricks/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture bricks.jpg
+	scale 0.4 0.7
+      }
+    }
+  }
+}
+material BricksSmall/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture bricks.jpg
+	scale 2.2 3.6
+      }
+    }
+  }
+}
+material BricksHalf/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture bricks.jpg
+	scale 1.5 0.7
+      }
+    }
+  }
+}
+material BricksThin/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture bricks.jpg
+	scale 2.7 0.7
+      }
+    }
+  }
+}
+material Ground/Image{
+  technique{
+    pass{
+      ambient 0.7 0.7 0.7 1.0
+      diffuse 0.7 0.7 0.7 1.0
+      specular 0.2 0.2 0.2 1.0 12.5
+
+      texture_unit{
+	texture tarmac.png
+	scale 0.02 0.02
+      }
+    }
+  }
+}
