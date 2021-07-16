@@ -125,10 +125,6 @@ behaviors:
   package: quadrotor_motion_with_platform_control
   task: ROTATE
 
-#- behavior: HOVER_WITH_FLIGHT_ACTION_CONTROL
-#  package: basic_quadrotor_behaviors
-#  task: HOVER
-
 #------------------------------------------------------
 - behavior: TAKE_OFF_WITH_PID
   package: quadrotor_motion_with_pid_control

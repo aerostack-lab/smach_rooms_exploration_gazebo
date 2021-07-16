@@ -4,14 +4,8 @@ NUMID_DRONE=111
 DRONE_SWARM_ID=1
 MAV_NAME=hummingbird_laser
 
-export AEROSTACK_PROJECT=${AEROSTACK_STACK}/projects/smach_rooms_exploration_gazebo
+export APPLICATION_PATH=${PWD}
 
-. ${AEROSTACK_STACK}/config/setup.sh
- 
-
-#---------------------------------------------------------------------------------------------
-# INTERNAL PROCESSES
-#---------------------------------------------------------------------------------------------
 gnome-terminal  \
 `#---------------------------------------------------------------------------------------------` \
 `# Basic Behaviors                                                                             ` \
@@ -34,8 +28,8 @@ exec bash\"" \
 --tab --title "Quadrotor Motion With PID Control" --command "bash -c \"
 roslaunch quadrotor_motion_with_pid_control quadrotor_motion_with_pid_control.launch --wait \
     namespace:=drone$NUMID_DRONE \
-    robot_config_path:=${AEROSTACK_PROJECT}/configs/drone$NUMID_DRONE \
-    uav_mass:=0.7;
+    robot_config_path:=${APPLICATION_PATH}/configs/drone$NUMID_DRONE \
+    uav_mass:=0.75;
 exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
 `# Gazebo Interface                                                                            ` \
@@ -50,16 +44,16 @@ exec bash\""  \
 `# Move Base                                                                                   ` \
 `#---------------------------------------------------------------------------------------------` \
   --tab --title "Move Base" --command "bash -c \"
-roslaunch ${AEROSTACK_STACK}/launchers/move_base_launcher/move_base.launch --wait \
+roslaunch ${APPLICATION_PATH}/launchers/move_base_launcher/move_base.launch --wait \
   drone_id_namespace:=drone$NUMID_DRONE \
   drone_id_int:=$NUMID_DRONE \
-  config_path:=${AEROSTACK_PROJECT}/configs/move_base_files;
+  config_path:=${APPLICATION_PATH}/configs/move_base_files;
             exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
 `# Hector Slam                                                                                 ` \
 `#---------------------------------------------------------------------------------------------` \
     --tab --title "Hector Slam" --command "bash -c \"
-roslaunch ${AEROSTACK_STACK}/launchers/hector_slam_launchers/hector_slam.launch --wait \
+roslaunch ${APPLICATION_PATH}/launchers/hector_slam_launchers/hector_slam.launch --wait \
   drone_id_namespace:=drone$NUMID_DRONE \
   drone_id_int:=$NUMID_DRONE;
             exec bash\""  \
@@ -70,13 +64,13 @@ roslaunch ${AEROSTACK_STACK}/launchers/hector_slam_launchers/hector_slam.launch 
 roslaunch belief_manager_process belief_manager_process.launch --wait \
     drone_id_namespace:=drone$NUMID_DRONE \
     drone_id:=$NUMID_DRONE \
-    config_path:=${AEROSTACK_PROJECT}/configs/mission;
+    config_path:=${APPLICATION_PATH}/configs/mission;
 exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
 `# Belief Updater                                                                              ` \
 `#---------------------------------------------------------------------------------------------` \
 --tab --title "Belief Updater" --command "bash -c \"
-roslaunch belief_updater_process belief_updater_process.launch --wait \
+roslaunch common_belief_updater_process common_belief_updater_process.launch --wait \
     drone_id_namespace:=drone$NUMID_DRONE \
     drone_id:=$NUMID_DRONE;
 exec bash\""  \
@@ -86,7 +80,7 @@ exec bash\""  \
 --tab --title "Behavior coordinator" --command "bash -c \" sleep 2;
 roslaunch behavior_coordinator behavior_coordinator.launch --wait \
   robot_namespace:=drone$NUMID_DRONE \
-  catalog_path:=${AEROSTACK_PROJECT}/configs/mission/behavior_catalog.yaml;
+  catalog_path:=${APPLICATION_PATH}/configs/mission/behavior_catalog.yaml;
 exec bash\""  &
 
 gnome-terminal \
@@ -99,21 +93,12 @@ roslaunch belief_memory_viewer belief_memory_viewer.launch --wait \
   drone_id:=$NUMID_DRONE;
 exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
-`# Behavior Execution Viewer                                                                   ` \
-`#---------------------------------------------------------------------------------------------` \
---tab --title "Behavior Execution Viewer" --command "bash -c \"
-roslaunch behavior_execution_viewer behavior_execution_viewer.launch --wait \
-  robot_namespace:=drone$NUMID_DRONE \
-  drone_id:=$NUMID_DRONE \
-  catalog_path:=${AEROSTACK_PROJECT}/configs/mission/behavior_catalog.yaml;
-exec bash\""  \
-`#---------------------------------------------------------------------------------------------` \
 `# Navigation With Lidar Behaviors                                                             ` \
 `#---------------------------------------------------------------------------------------------` \
 --tab --title "Navigation With Lidar" --command "bash -c \"
 roslaunch navigation_with_lidar navigation_with_lidar.launch --wait \
   namespace:=drone$NUMID_DRONE \
-  clearance:=0.30;
+  clearance:=0.3;
 exec bash\"" &
 
 gnome-terminal  \

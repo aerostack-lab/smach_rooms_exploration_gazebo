@@ -15,8 +15,6 @@ Panels:
         - /Polygon1
         - /Pose2
         - /Frontier1
-        - /Path3
-        - /Path3/Status1
       Splitter Ratio: 0.5
     Tree Height: 579
   - Class: rviz/Selection
@@ -267,5 +265,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1375
-  X: 1185
-  Y: 124
+  X: 545
+  Y: 94

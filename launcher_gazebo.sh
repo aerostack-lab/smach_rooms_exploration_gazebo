@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DRONE_SWARM_MEMBERS=$1
-export AEROSTACK_PROJECT=${AEROSTACK_STACK}/projects/smach_rooms_exploration_gazebo
+export APLICATION_PATH=${PWD}
 MAV_NAME=hummingbird_laser
 
 if [ -z $DRONE_SWARM_MEMBERS ] # Check if NUMID_DRONE is NULL
@@ -15,7 +15,7 @@ fi
 
 gnome-terminal  \
     --tab --title "DroneRotorsSimulator" --command "bash -c \"
-roslaunch ${AEROSTACK_PROJECT}/configs/gazebo_files/launch/env_mav_rl_navigation.launch project:=${AEROSTACK_PROJECT};
+roslaunch ${APLICATION_PATH}/configs/gazebo_files/launch/env_mav_rl_navigation.launch project:=${APLICATION_PATH};
             exec bash\""  &
 
 for (( c=1; c<=$DRONE_SWARM_MEMBERS; c++ )) 
