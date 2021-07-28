@@ -23,18 +23,30 @@ In order to execute the mission, perform the following steps:
 
         $ ./main_launcher.sh
 
--Move to /configs/mission directory
+- Move to /configs/mission directory
 
         $ cd configs/mission
         
-- Execute the following command to run the mission:
+- Execute the following command to run the mission without using the Behavior Coordinator:
 
-        $ ./simple_mission.py
+        $ ./move_mission.py
+        
+- If you want to use the Behavior Coordinator execute the following command instead:
+
+        $ ./move_mission_with_behavior_coordinator.py 
 
 The following video illustrates how to launch the project:
 
-The following video shows the complete execution:
+[ ![Launch](https://i.ibb.co/DVVTRb2/Captura-de-pantalla-de-2021-07-29-01-26-54.png)](https://www.youtube.com/watch?v=31e5CUVAzho)
 
 
+The following video shows the complete execution of the mission without using the Behavior Coordinator:
+
+[ ![Launch](https://i.ibb.co/61R1DtS/Captura-de-pantalla-de-2021-07-29-01-44-25.png)](https://www.youtube.com/watch?v=aPc0SeDHLSY)
+
+
+The following video shows the complete execution of the mission using the Behavior Coordinator:
+
+[ ![Launch](https://i.ibb.co/h736v4j/Captura-de-pantalla-de-2021-07-29-01-44-50.png)](https://www.youtube.com/watch?v=519rVCB-83M)
 
 
