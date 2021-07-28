@@ -16,6 +16,8 @@ In order to execute the mission, perform the following steps:
 - Wait until the following window is presented:
 
 
+<img src="https://github.com/aerostack/rooms_exploration_gazebo/blob/master/doc/gazeborooms.png" width=600>
+
 
 - Execute the script that launches the Aerostack components for this project:
 
